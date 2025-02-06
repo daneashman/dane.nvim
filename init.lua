@@ -3,6 +3,7 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.showmode = false
 
 vim.keymap.set('n', '<leader>d', vim.cmd.Ex, { desc = 'Open [D]irectory (netrw)' })
 
@@ -165,6 +166,8 @@ require("lazy").setup({
     ---@type render.md.UserConfig
     opts = {},
   },
+
+  { 'ThePrimeagen/vim-be-good' },
 })
 
 
