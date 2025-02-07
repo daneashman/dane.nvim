@@ -173,16 +173,25 @@ require("lazy").setup({
 
 
 -- Telescope config
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      n = { -- Normal mode mappings
+        ['<C-d>'] = require('telescope.actions').delete_buffer, -- Use CTRL-d to delete a buffer
+      },
+    },
+  },
+}
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = '[G]it [S]tatus' })
 vim.keymap.set('n', '<leader>gc', builtin.git_commits, { desc = '[G]it [C]ommits' })
-vim.keymap.set('n', '<leader><leader>', builtin.git_files, { desc = '[G]it [F]iles' })
+vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = '[G]it [F]iles' })
 
--- enable tokyonight color scheme
+-- enable tokyonight or rose-pine color scheme
 -- vim.cmd[[colorscheme tokyonight]]
 vim.cmd[[colorscheme rose-pine]]
 
