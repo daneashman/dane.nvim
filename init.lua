@@ -1,6 +1,9 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.showmode = false
@@ -106,7 +109,7 @@ require("lazy").setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'jsonc', 'svelte'},
+      ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'jsonc', 'svelte', 'javascript'},
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -211,13 +214,15 @@ require("mason-lspconfig").setup({
     'lua_ls',
     'svelte',
     'shopify_theme_ls',
-    'eslint',
-    'ts_ls', -- TypeScript language servers work well for js too!
+    'quick_lint_js',
+    'html',
   },
   automatic_installation = true,
 })
 require("lspconfig").lua_ls.setup {}
 require("lspconfig").svelte.setup {}
+require("lspconfig").quick_lint_js.setup {}
+require("lspconfig").html.setup {}
 
 -- LuaLine setup (statusline)
 -- stylua: ignore
