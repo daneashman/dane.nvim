@@ -109,7 +109,7 @@ require("lazy").setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'jsonc', 'svelte', 'javascript'},
+      ensure_installed = { 'bash', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc', 'jsonc', 'svelte', 'javascript', 'go'},
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
@@ -237,6 +237,7 @@ require("mason-lspconfig").setup({
     'shopify_theme_ls',
     'quick_lint_js',
     'html',
+    'gopls',
   },
   automatic_installation = true,
 })
