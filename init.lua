@@ -203,6 +203,16 @@ require("lazy").setup({
       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
     }
   },
+
+  -- adds indentation guides (vertical lines to indents)
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
+
 })
 
 -- Telescope config
@@ -321,6 +331,9 @@ require('lualine').setup {
   },
   extensions = {},
 }
+
+-- indent guides setup
+require("ibl").setup()
 
 -- Small Terminal Shortcut
 vim.keymap.set('n', '<leader>st', function()
