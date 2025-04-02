@@ -329,3 +329,6 @@ vim.keymap.set('n', '<leader>st', function()
   vim.cmd.wincmd('J')
   vim.api.nvim_win_set_height(0, 15)
 end)
+
+-- Shortcut to go back to normal mode while in terminal
+vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
