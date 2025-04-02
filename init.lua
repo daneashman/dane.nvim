@@ -335,14 +335,32 @@ require('lualine').setup {
 -- indent guides setup
 require("ibl").setup()
 
--- Small Terminal Shortcut
-vim.keymap.set('n', '<leader>st', function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd('J')
-  vim.api.nvim_win_set_height(0, 15)
-end)
+-- Short Terminal Shortcut
+vim.keymap.set('n', '<leader>ts',
+  function()
+    vim.cmd.vnew()
+    vim.cmd.term()
+    vim.cmd.wincmd('J')
+    vim.api.nvim_win_set_height(0, 15)
+    vim.cmd('startinsert')
+  end,
+  { desc = "Open Short Terminal" }
+)
+-- Tall Terminal Shortcut
+vim.keymap.set('n', '<leader>tt',
+  function()
+    vim.cmd.new()
+    vim.cmd.term()
+    vim.cmd.wincmd('L')
+    vim.api.nvim_win_set_width(0, 100)
+    vim.cmd('startinsert')
+  end,
+  { desc = "Open Tall Terminal" }
+)
 
--- Shortcut to go back to normal mode and close the window while in terminal
-vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>:close<CR>', { desc = "Exit terminal and close window" })
-
+-- Shortcut to go back to normal mode and !(delete the buffer) while in terminal
+vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>', { desc = "Exit terminal and close window" })
+-- Shortcut to quit the current terminal
+vim.keymap.set('t', '<C-q>', '<C-\\><C-n>:bd!<CR>', { desc = "Exit terminal and close window" })
+-- Shortcut to hide the current terminal
+vim.keymap.set('t', '<C-h>', '<C-\\><C-n>:close<CR>', { desc = "Exit terminal and close window" })
