@@ -343,5 +343,6 @@ vim.keymap.set('n', '<leader>st', function()
   vim.api.nvim_win_set_height(0, 15)
 end)
 
--- Shortcut to go back to normal mode while in terminal
-vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>')
+-- Shortcut to go back to normal mode and close the window while in terminal
+vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>:close<CR>', { desc = "Exit terminal and close window" })
+
