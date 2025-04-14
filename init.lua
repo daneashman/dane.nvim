@@ -363,4 +363,4 @@ vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>', { desc = "Exit terminal and clo
 -- Shortcut to quit the current terminal
 vim.keymap.set('t', '<C-q>', '<C-\\><C-n>:bd!<CR>', { desc = "Exit terminal and close window" })
 -- Shortcut to hide the current terminal
-vim.keymap.set('t', '<C-h>', '<C-\\><C-n>:close<CR>', { desc = "Exit terminal and close window" })
+-- vim.keymap.set('t', '<C-h>', '<C-\\><C-n>:close<CR>', { desc = "Exit terminal and close window" })
