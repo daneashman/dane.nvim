@@ -364,3 +364,13 @@ vim.keymap.set('t', '<esc><esc>', '<C-\\><C-n>', { desc = "Exit terminal and clo
 vim.keymap.set('t', '<C-q>', '<C-\\><C-n>:bd!<CR>', { desc = "Exit terminal and close window" })
 -- Shortcut to hide the current terminal
 -- vim.keymap.set('t', '<C-h>', '<C-\\><C-n>:close<CR>', { desc = "Exit terminal and close window" })
+
+-- Ensure tabs work normal in tsv files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "tsv",
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.tabstop = 8
+    vim.opt_local.shiftwidth = 8
+  end
+})
